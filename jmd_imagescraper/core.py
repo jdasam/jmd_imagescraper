@@ -77,7 +77,7 @@ def duckduckgo_scrape_urls(keywords: str, max_results: int,
   results = 0
   links = []
 
-  resp = requests.post(BASE_URL, data=params)
+  resp = requests.post(BASE_URL, data=params, headers={'user-agent': 'my-cool-user-agent/1.0.0'})
   match = re.search(r'vqd=([\d-]+)\&', resp.text, re.M|re.I)
   assert match is not None, "Failed to obtain search token"
 
